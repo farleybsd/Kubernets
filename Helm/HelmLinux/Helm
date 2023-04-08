@@ -1,0 +1,24 @@
+# Atualizando os Repositorios 
+- sudo apt update
+
+# Instalando Certificados Http
+- sudo apt install -y curl wget apt-transport-https
+
+# Chave Repository Helm
+- curl https://baltocdn.com/helm/signing.asc | sudo apt-key add -
+
+# Instalando Hlm no repository do Linux
+- echo "deb https://baltocdn.com/helm/stable/debian/ all main " | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+
+# Atualizando os Repositorios 
+- sudo apt update
+
+# Instalando o Helm 
+- sudo apt-get install -y helm
+
+# Instalando o Helm Windows 
+- choco install kubernetes-helm
+
+
+# Validando Instalacao
+- helm version 

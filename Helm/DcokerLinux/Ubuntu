@@ -1,0 +1,26 @@
+# Atualizando os pacotes
+- sudo apt update 
+
+# Cetificados Https
+- sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+
+# Baixar a chave repositorio docker
+- curl -fsSl https://dowload.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+# Adicionando Repo Docker
+- sudo add-apt-repository "deb [arch=amd64] https://dowload.docker.com/linux/ubuntu focal stable"
+
+# Atualizando os pacotes
+- sudo apt update 
+
+# Instalando o Doker
+- sudo apt install -y docker-ce
+
+# Verificando o status do Docker
+- systemctl status docker
+
+# Permitir usuarios nao root realizar os comandos do docker
+- sudo usermod -aG docker ${USER}
+
+# TESTAR O ACESSO DO Usuario NAO ROOT
+- docker image ls

@@ -1,0 +1,35 @@
+# Atualizando Pacotes 
+- sudo apt update
+
+# Instalando Cerificados SSL
+- sudo apt install -y curl wget apt-transport-https
+
+# Dowload Binario Mine Kube
+- wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+
+# Copiando o binario para um diretorio
+- sudo cp minikube-linux-amd64 /usr/local/minikube
+
+# Deixando o binario como execultavel
+- sudo chmod +x /usr/local/minikube
+
+# Validando a instalacao 
+- minikube version 
+
+# Instalando o KubeCtl
+- curl -LO https://storage.googleapis.com/Kubernetes-release/release/`curl -s https://storage.googleapis.com/Kubernetes-release/release/stable.txt` /bin/linux/amd64/Kubectl
+
+# Deixando o KubeCtl como execultavel
+- chmod +x kubectl
+
+# Adiconando o LubeCtl ao sistema do Linux
+- sudo mv kubectl /usr/local/bin
+
+# verificando a instalacao
+- kubectl version -o yaml
+
+# Subindo o Cluster no Docker
+- minikube start --driver=docker 
+
+# verificando o status
+- minikube status
