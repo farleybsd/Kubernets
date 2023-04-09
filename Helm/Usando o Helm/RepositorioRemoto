@@ -1,0 +1,11 @@
+# Listanto um repositorio
+-  helm  repo list
+
+# Adicionando um repositorio
+- helm repo add bitnami https://charts.bitnami.com/bitnami
+
+# Conectar ao Repositorio e ver qual pacote podemos instalar
+- helm repo update
+
+# Remover Repositorio 
+- helm repo remove bitnami

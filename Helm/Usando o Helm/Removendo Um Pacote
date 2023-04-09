@@ -1,0 +1,11 @@
+# Listando os pacotes
+- helm list
+
+# Removendo Pacote 
+- helm uninstall my-release
+
+# Listando o Pacotes
+- helm list
+
+# Listando os recursos
+- kubectl get all

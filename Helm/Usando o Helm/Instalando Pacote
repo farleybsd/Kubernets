@@ -1,0 +1,24 @@
+Obs: Execultar esse Passo
+# Subindo o Cluster no Docker
+- minikube start --driver=docker 
+_______________________________________________________________________________________
+# Adicionando um repositorio
+- helm repo add bitnami https://charts.bitnami.com/bitnami
+
+# Conectar ao Repositorio e ver qual pacote podemos instalar
+- helm repo update
+
+# Instalando Pacote
+- helm install my-release bitnami/phpmyadmin
+
+# Pacotes Instalados 
+- helm list
+
+# Ver os Recursos Instalados
+- kubectl get all
+
+# Criar redirecionamento de porta
+- kubectl port-forward --namespace default svc/my-release-phpmyadmin 8080:80
+
+# Acesso Recurso
+- http://localhost:8080/
