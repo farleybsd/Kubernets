@@ -1,0 +1,43 @@
+# Chart 
+- Formato de pacotamento do Helm
+- Composto por varios arquivos onde criamos os recursos do kuberntes
+
+# Commando para criar o chart
+- Acessar o Diretorio 
+- helm create meuchart
+
+# Removendo arquivos
+- rm -rf meuchart/templates/*
+
+# Criar configmap.yaml
+
+# Instalando o chart
+- helm install meuchart-v1 ./meuchart
+
+# Verificando recursos criados
+- helm get manifest meuchart-v1
+
+# Removendo chart
+- helm uninstall meuchart-v1
+
+## Trabalhando com Objeto
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: {{ .Release.Name }}-configmap
+data:
+    myvalue: "Hello World"
+
+## Os objetos nos templates são representados por dois pares de chaves ({{ e }} )
+Instalando o chart
+helm install meuchart-v2 ./meuchart
+    
+## Verificando recursos criados
+helm get manifest meuchart-v2
+
+## Removendo chart
+- helm uninstall meuchart-v2
+## Testando a instalação
+- helm install --debug --dry-run meuchart-v3 ./meuchart
+--dry-run: Usado para simular a implantação de um chart. Isso não indica irá aplicar sem problema (mais nao instala)
+
