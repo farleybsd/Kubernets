@@ -1,0 +1,19 @@
+## Objeto Simples 
+
+{{ .Release.Name }}
+
+{{ => Inicio
+. => Nivel Raiz
+Release => Objeto de Nivel Superior (Objeto Defaull Helm)
+. => Divisor de Objetos/niveis
+Name =>  Objeto de Nivel Inferior/Objeto Filho (nome da Release)
+}} => FIM 
+
+## Objeto Release 
+ Release: Informacoes da propria implantacao
+ Values:  Informacoes do values.yaml
+ Chart:  Informacoes  Chart.yaml
+ Files:  Informacoes de arquivos do nosso Chart
+ Capabilities: Informacoes do cluster do kubernetes
+ Templates: Informacoes de  Templates que nao padroes
+

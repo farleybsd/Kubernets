@@ -1,0 +1,25 @@
+## IF/ELSE
+{{ if eq .Values.configmap.enabled true }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: {{ .Release.Name }}-configmap
+data:
+    myvalue: "Hello World"
+    bebida: {{ .Values.favorita.bebida | default "chà" | quote }}
+    comida: {{ .Values.favorita.comida | upper | quote }}
+    {{- if and (eq .Values.favorita.bebida "cafe") (eq .Values.favorita.temperatura "quente") }}
+    caneca: "Sim, com protetor"
+    {{ else if and (eq .Values.favorita.bebida "cafe") (eq .Values.favorita.temperatura "fria")  }}
+    caneca: "Sim, sem protetor"
+    {{ else }}
+    caneca: "Nao"
+    {{- end }}
+    {{end }}
+
+
+ helm install --debug --dry-run restaurante ./meuchart
+
+ - obs: --dry-run (nao aplicar apenas teste)
+- restaurante: nome da release
+- diretorio : C:\MyGit\Kubernets\Helm\Meu Primeiro Chart

@@ -4,3 +4,44 @@ metadata:
     name: {{ .Release.Name }}-configmap
 data:
     myvalue: "Hello World"
+
+
+
+
+# apiVersion: v1
+# kind: ConfigMap
+# metadata:
+#  name: {{ .Release.Name }}-configmap
+# data:
+#     myvalue: "Hello World"
+#     bebida: |-
+#         {{- range .Values.favorita.bebida }}
+#         - {{ . | quote }}
+#         {{- end }}
+#     comida: |-
+#         {{- range .Values.favorita.comida }}
+#         - {{ . | quote }}
+#         {{- end }}
+  
+
+# apiVersion: v1
+# kind: ConfigMap
+# metadata:
+#     name: {{ .Release.Name }}-configmap
+# data:
+#     myvalue: "Hello World"
+#     {{- with .Values.favorita }}
+#     bebida: {{ .bebida }}
+#     comida: {{ .comida }}
+#     {{- end }}
+#     release: {{ $.Release.Name }}
+#     bebida: {{ .Values.favorita.bebida | default "chà" | quote }}
+#     comida: {{ .Values.favorita.comida | upper | quote }}
+#     {{- if and (eq .Values.favorita.bebida "cafe") (eq .Values.favorita.temperatura "quente") }}
+#     caneca: "Sim, com protetor"
+#     {{ else if and (eq .Values.favorita.bebida "cafe") (eq .Values.favorita.temperatura "fria")  }}
+#     caneca: "Sim, sem protetor"
+#     {{ else }}
+#     caneca: "Nao"
+#     {{- end }}
+#     {{end }}

@@ -1,0 +1,8 @@
+## Funcao With
+
+- Pegar as informacoes a partir de um ponto
+- Passa a raiz e  depois acesa os objetos dentro da raiz
+
+
+# Execultar
+helm install --debug --dry-run restaurante ./meuchart

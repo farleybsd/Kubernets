@@ -1,0 +1,27 @@
+## Funcao Default 
+
+-- Quando no manifesto precisa de um padrao mais as vezes nao e passado
+forcamos um valor default 
+
+# Arquivo values.yaml
+ favorita:
+  #bebida: cafe
+  comida: pizza
+# ConfigMap
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: {{ .Release.Name }}-configmap
+data:
+    myvalue: "Hello World"
+    bebida: {{ .Values.favorita.bebida | default "chà" | quote }}
+    comida: {{ .Values.favorita.comida | upper | quote }}
+
+
+# execultando 
+helm install --debug --dry-run restaurante ./meuchart
+
+- obs: --dry-run (nao aplicar apenas teste)
+- restaurante: nome da release
+- diretorio : C:\MyGit\Kubernets\Helm\Meu Primeiro Chart

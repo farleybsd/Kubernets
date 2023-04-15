@@ -1,0 +1,7 @@
+## Range quandoo um objeto pode ter mais de um Valo (Tipo Foreach)
+
+
+
+# Execultar 
+
+helm install --debug --dry-run restaurante ./meuchart

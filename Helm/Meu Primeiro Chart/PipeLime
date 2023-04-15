@@ -1,0 +1,22 @@
+## Pipeline Sequencia de atividades ou Acoes 
+ Adicionar Funcoes na ecxecucao do configmap.yaml tipo
+ - repeat repetir o valor
+ - quote adiciar "" no valor
+ - upper deixar o valor em maiusculo 
+
+ apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: {{ .Release.Name }}-configmap
+data:
+    myvalue: "Hello World"
+    bebida: {{ .Values.favorita.bebida | repeat 5 | quote }}
+    comida: {{ .Values.favorita.comida | upper | quote }}
+
+
+    ecxecultando 
+    helm install --debug --dry-run restaurante ./meuchart
+
+- obs: --dry-run (nao aplicar apenas teste)
+- restaurante: nome da release
+- diretorio : C:\MyGit\Kubernets\Helm\Meu Primeiro Chart

@@ -1,0 +1,27 @@
+# Arquivos Values Yaml
+
+## Setando um valor no arquivo Yaml
+- helm install --set foo=bar ./mychart
+
+### Dentro do Chat usar o arquivo values.yaml
+
+No arquivo values.yaml ficam as chaves o os valores 
+- bebida: cafe
+No arquivo configmap.yaml e aonde vc faz a chamada que estar no arquivo values.yaml
+- apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: {{ .Release.Name }}-configmap
+data:
+    myvalue: "Hello World"
+    bebida: {{ .Values.bebida }}
+
+## Comando para Testar
+- helm install --debug --dry-run restaurante ./meuchart
+
+- obs: --dry-run (nao aplicar apenas teste)
+- restaurante: nome da release
+- diretorio : C:\MyGit\Kubernets\Helm\Meu Primeiro Chart
+
+# Subistituindo o valor em  tempo de execucao 
+- helm install --debug --dry-run restaurante ./meuchart --set bebida=refrigerante
