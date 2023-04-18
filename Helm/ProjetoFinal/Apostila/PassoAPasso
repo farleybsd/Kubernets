@@ -1,0 +1,29 @@
+## Criando um Chart
+1. 
+- helm create meusite
+- Apagar todos arquivos do templates 
+
+2. Criando manifestos (Dentro da pasta de templates)
+- deployment.yaml (subir o site )
+- hpa.yaml
+- ingress.yml (gerencia as rotas do site )
+- service.yml (servicos instalados tipo nginx)
+
+obs: Verificar erro no chart 
+helm lint ./meusite
+https://www.yamllint.com/
+https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml
+learn-yaml
+
+
+Aplicar manifestos
+kubectl apply -f meusite/templates
+
+Verificando recursos criados
+kubectl
+
+Teste de acesso na aplicação
+curl -kL http://127.0.0.1:30000/meusite
+
+Deletar manifestos
+kubectl delete -f meusite/templates
