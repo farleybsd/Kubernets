@@ -27,3 +27,6 @@ curl -kL http://127.0.0.1:30000/meusite
 
 Deletar manifestos
 kubectl delete -f meusite/templates
+
+## Values (Apagar o conteudo)
+
